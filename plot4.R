@@ -42,6 +42,10 @@ g <- g + geom_bar(stat="identity",position="dodge")
 g <- g + labs(list(x="Year",y="emissions (in thousands of tons)",fill="emissions",title=expression("PM"[2.5]*" Emissions from Coal Combustion Related Sources in US")))
 # Set the colour scale
 g <- g + scale_fill_gradientn(colours=c("#51B1F4","#183043"))
-# Print the chart
-g
 
+# Print the chart
+# Prepare the device
+png(filename="plot4.png", width = 480, height = 480)
+g
+# shut down the current device (png file)
+dev.off()

@@ -23,6 +23,11 @@ g <- ggplot(totalemissions,aes(x=factor(type),y=emissions,fill=factor(year)))
 g <- g + geom_bar(stat="identity",position="dodge") 
 # set the labels
 g <- g + labs(list(x="Type",y="emissions (in tons)",fill="Year",title=expression("PM"[2.5]*" Emissions in Baltimore City (US)")))
+
 # Print the chart
+# Prepare the device
+png(filename="plot3.png", width = 480, height = 480)
 g
+# shut down the current device (png file)
+dev.off()
 

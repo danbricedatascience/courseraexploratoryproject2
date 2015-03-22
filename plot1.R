@@ -23,8 +23,14 @@ cols <- brewer.pal(9,"YlOrRd")
 pal <- colorRampPalette(cols)
 col <- rev(pal(9))
 
+# Prepare the device
+png(filename="plot1.png", width = 480, height = 480)
+
 with(totalemissions, barplot(totalemissionsvect,main=expression("Total PM"[2.5]*" Emissions per year in US"),
                              col=col,xlab="Year",ylab="Emissions (million of tons)"),space=0)
+
+# shut down the current device (png file)
+dev.off()
 
 
 

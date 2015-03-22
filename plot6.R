@@ -66,6 +66,10 @@ g <- ggplot(totalemissions,aes(x=factor(year),y=index,group=place,colour=factor(
 g <- g + geom_line(size=2) + geom_point(size=6)
 # set the labels
 g <- g + labs(list(x="Year",y="emissions base 100 index changes since 1999",colour="index",title=expression("Base 100 comparison of PM"[2.5]*" Emissions from Motor Vehicle between Baltimore City and LA County")))
-# Print the chart
-g
 
+# Print the chart
+# Prepare the device
+png(filename="plot6.png", width = 800, height = 480)
+g
+# shut down the current device (png file)
+dev.off()

@@ -24,11 +24,12 @@ cols <- brewer.pal(9,"YlOrRd")
 pal <- colorRampPalette(cols)
 col <- rev(pal(9))
 
+# Prepare the device
+png(filename="plot2.png", width = 480, height = 480)
+
 with(totalemissions, barplot(totalemissionsvect,main=expression("Total PM"[2.5]*" Emissions per year in Baltimore City(US)"),
                              col=col,xlab="Year",ylab="Emissions (thousand of tons)"),space=0)
 
-## TODO : Adapt the color to the level and not to the rank
-## Add linear regression ? trend side ?
-
-
+# shut down the current device (png file)
+dev.off()
 
